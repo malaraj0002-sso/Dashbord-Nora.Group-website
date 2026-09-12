@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 6% 7%;
+    --foreground: 40 30% 95%;
+    --card: 240 6% 9%;
+    --card-foreground: 40 30% 95%;
+    --popover: 240 6% 10%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 46 74% 49%;
+    --primary-foreground: 240 6% 7%;
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 240 5% 14%;
+    --muted-foreground: 40 5% 55%;
+    --accent: 46 74% 49%;
+    --accent-foreground: 240 6% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 30% 95%;
+    --border: 240 5% 16%;
+    --input: 240 5% 16%;
+    --ring: 46 74% 49%;
+    --radius: 0.75rem;
+    --chart-1: 46 74% 49%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 200 70% 50%;
+    --chart-4: 30 80% 55%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .gold-text {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gold-border {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+  .luxury-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .luxury-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .luxury-scroll::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 3px;
+  }
+  .luxury-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.4);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
