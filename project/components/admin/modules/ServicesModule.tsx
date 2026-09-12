@@ -62,6 +62,7 @@ export function ServicesModule() {
                     <div onClick={() => setEditingId(svc.id)}>
                       <div className="relative aspect-video rounded-lg overflow-hidden mb-3 bg-background/50">
                         {svc.imageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
                           <img src={svc.imageUrl} alt="" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         ) : (
                           <div className="flex h-full items-center justify-center">

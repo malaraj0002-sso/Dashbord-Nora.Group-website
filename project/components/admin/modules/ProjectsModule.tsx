@@ -49,6 +49,7 @@ export function ProjectsModule() {
                   <div onClick={() => setEditingId(project.id)}>
                     <div className="relative aspect-video rounded-lg overflow-hidden mb-3 bg-background/50">
                       {project.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img src={project.imageUrl} alt="" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
                         <div className="flex h-full items-center justify-center">
@@ -218,6 +219,7 @@ export function ProjectsModule() {
                     {editingProject.galleryImages.map((img, idx) => (
                       <div key={idx} className="relative group">
                         <div className="aspect-video rounded-lg overflow-hidden border border-input">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={img} alt="" className="h-full w-full object-cover" />
                         </div>
                         <button

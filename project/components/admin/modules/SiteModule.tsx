@@ -44,6 +44,7 @@ export function SiteModule() {
                 />
                 {siteSettings.logoUrl && (
                   <div className="mt-3 glass rounded-lg p-4 flex items-center gap-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={siteSettings.logoUrl} alt="Logo" className="h-12 w-auto" />
                     <span className="text-xs text-muted-foreground">Logo preview</span>
                   </div>

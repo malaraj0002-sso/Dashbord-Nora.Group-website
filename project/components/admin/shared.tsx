@@ -49,10 +49,15 @@ export function SectionHeader({
           </div>
         )}
         <div>
-          <h2 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-playfair), serif' }}>
+          <h2
+            className="text-lg font-semibold text-foreground"
+            style={{ fontFamily: 'var(--font-playfair), serif' }}
+          >
             {title}
           </h2>
-          {subtitle && <p className="text-xs text-muted-foreground mt-0.5">{subtitle}</p>}
+          {subtitle && (
+            <p className="text-xs text-muted-foreground mt-0.5">{subtitle}</p>
+          )}
         </div>
       </div>
       {action}
@@ -75,14 +80,34 @@ export function ImageUpload({
 }) {
   return (
     <div className={className}>
-      {label && <label className="text-xs font-medium text-muted-foreground mb-1.5 block">{label}</label>}
+      {label && (
+        <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
+          {label}
+        </label>
+      )}
+
       <div className="relative group">
-        <div className={cn('relative w-full overflow-hidden rounded-lg border border-input bg-background/50', aspect)}>
+        <div
+          className={cn(
+            'relative w-full overflow-hidden rounded-lg border border-input bg-background/50',
+            aspect
+          )}
+        >
           {value ? (
             <>
-              <img src={value} alt="" className="h-full w-full object-cover" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={value}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                <Button size="sm" variant="secondary" onClick={() => onChange('')}>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={() => onChange('')}
+                >
                   <X className="h-4 w-4 mr-1" /> Remove
                 </Button>
               </div>
@@ -90,7 +115,9 @@ export function ImageUpload({
           ) : (
             <label className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer gap-2 text-muted-foreground hover:text-gold transition-colors">
               <Upload className="h-8 w-8" />
+
               <span className="text-xs">Upload image</span>
+
               <input
                 type="text"
                 placeholder="Paste image URL..."
@@ -118,7 +145,12 @@ export function PublishToggle({
   return (
     <div className="flex items-center gap-2">
       <Switch checked={published} onCheckedChange={onChange} />
-      <span className={cn('text-xs font-medium', published ? 'text-gold' : 'text-muted-foreground')}>
+      <span
+        className={cn(
+          'text-xs font-medium',
+          published ? 'text-gold' : 'text-muted-foreground'
+        )}
+      >
         {label}
       </span>
     </div>
@@ -127,9 +159,16 @@ export function PublishToggle({
 
 export function StatusBadge({ published }: { published: boolean }) {
   return published ? (
-    <Badge className="bg-gold/15 text-gold border-gold/30 hover:bg-gold/20">Published</Badge>
+    <Badge className="bg-gold/15 text-gold border-gold/30 hover:bg-gold/20">
+      Published
+    </Badge>
   ) : (
-    <Badge variant="outline" className="text-muted-foreground border-border">Draft</Badge>
+    <Badge
+      variant="outline"
+      className="text-muted-foreground border-border"
+    >
+      Draft
+    </Badge>
   );
 }
 
@@ -141,7 +180,13 @@ export function FeaturedBadge({ featured }: { featured: boolean }) {
   ) : null;
 }
 
-export function AddButton({ onClick, label }: { onClick: () => void; label: string }) {
+export function AddButton({
+  onClick,
+  label,
+}: {
+  onClick: () => void;
+  label: string;
+}) {
   return (
     <Button
       onClick={onClick}
@@ -153,13 +198,22 @@ export function AddButton({ onClick, label }: { onClick: () => void; label: stri
   );
 }
 
-export function DeleteButton({ onClick, className }: { onClick: () => void; className?: string }) {
+export function DeleteButton({
+  onClick,
+  className,
+}: {
+  onClick: () => void;
+  className?: string;
+}) {
   return (
     <Button
       onClick={onClick}
       size="icon"
       variant="ghost"
-      className={cn('text-destructive/70 hover:text-destructive hover:bg-destructive/10 h-8 w-8', className)}
+      className={cn(
+        'text-destructive/70 hover:text-destructive hover:bg-destructive/10 h-8 w-8',
+        className
+      )}
     >
       <Trash2 className="h-4 w-4" />
     </Button>
@@ -177,10 +231,17 @@ export function ReorderButtons({
 }) {
   return (
     <div className={cn('flex flex-col gap-0.5', className)}>
-      <button onClick={onUp} className="text-muted-foreground hover:text-gold transition-colors">
+      <button
+        onClick={onUp}
+        className="text-muted-foreground hover:text-gold transition-colors"
+      >
         <ArrowUp className="h-3 w-3" />
       </button>
-      <button onClick={onDown} className="text-muted-foreground hover:text-gold transition-colors">
+
+      <button
+        onClick={onDown}
+        className="text-muted-foreground hover:text-gold transition-colors"
+      >
         <ArrowDown className="h-3 w-3" />
       </button>
     </div>
@@ -188,10 +249,20 @@ export function ReorderButtons({
 }
 
 export function FieldLabel({ children }: { children: React.ReactNode }) {
-  return <label className="text-xs font-medium text-muted-foreground mb-1.5 block">{children}</label>;
+  return (
+    <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
+      {children}
+    </label>
+  );
 }
 
-export function ItemRow({ children, className }: { children: React.ReactNode; className?: string }) {
+export function ItemRow({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -221,8 +292,17 @@ export function EmptyState({
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold/5 border border-gold/10 mb-4">
         <Icon className="h-8 w-8 text-gold/40" />
       </div>
-      <h3 className="text-sm font-medium text-foreground mb-1">{title}</h3>
-      {description && <p className="text-xs text-muted-foreground max-w-sm mb-4">{description}</p>}
+
+      <h3 className="text-sm font-medium text-foreground mb-1">
+        {title}
+      </h3>
+
+      {description && (
+        <p className="text-xs text-muted-foreground max-w-sm mb-4">
+          {description}
+        </p>
+      )}
+
       {action}
     </div>
   );
@@ -245,10 +325,17 @@ export function StarRating({
           className={cn(
             'transition-colors',
             onChange && 'cursor-pointer hover:scale-110',
-            star <= value ? 'text-gold' : 'text-muted-foreground/30'
+            star <= value
+              ? 'text-gold'
+              : 'text-muted-foreground/30'
           )}
         >
-          <Star className={cn('h-4 w-4', star <= value && 'fill-current')} />
+          <Star
+            className={cn(
+              'h-4 w-4',
+              star <= value && 'fill-current'
+            )}
+          />
         </button>
       ))}
     </div>
