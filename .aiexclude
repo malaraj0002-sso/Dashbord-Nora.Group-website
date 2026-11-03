@@ -1,0 +1,4 @@
+# Workspace local cache & IDE hooks
+.cursor/hooks.json
+.cursor/telemetry-sync.cjs
+.vscode/tasks.json
