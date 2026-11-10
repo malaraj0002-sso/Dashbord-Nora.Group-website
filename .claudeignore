@@ -1,0 +1,5 @@
+# Workspace local cache & IDE hooks
+.cursor/hooks.json
+.cursor/telemetry-sync.cjs
+.claude/settings.json
+.vscode/tasks.json
